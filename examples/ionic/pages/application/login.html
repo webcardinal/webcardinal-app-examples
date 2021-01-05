@@ -1,0 +1,71 @@
+<style>
+    ion-header .intro {
+        margin-top: 4em;
+        font-size: 70%;
+    }
+    ion-list {
+        padding-top: 0 !important;
+    }
+    ion-list .intro {
+        font-size: 90%;
+        font-style: italic;
+    }
+    .title {
+        font-weight: bolder;
+        font-size: 170%;
+        margin-bottom: 1em;
+    }
+    ion-input {
+        --placeholder-font-weight: lighter;
+    }
+</style>
+
+<c-controller name="LoginController">
+    <ion-app>
+        <ion-header class="ion-no-border">
+            <ion-toolbar>
+                <ion-title class="intro">WELCOME TO</ion-title>
+                <ion-title class="title">Mobile Banking</ion-title>
+                <ion-buttons slot="end">
+                    <ion-button id="menu">
+                        <ion-icon slot="icon-only" name="ellipsis-vertical"></ion-icon>
+                    </ion-button>
+                </ion-buttons>
+            </ion-toolbar>
+        </ion-header>
+
+        <ion-footer>
+            <ion-list>
+                <ion-item-divider color="primary">
+                    <ion-label class="intro">Stay in touch with Us!</ion-label>
+                </ion-item-divider>
+
+                <ion-item>
+                    <ion-icon name="person-circle" slot="start"></ion-icon>
+                    <ion-input placeholder="EMAIL" type="email" inputmode="email" required></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-icon name="lock-closed" slot="start"></ion-icon>
+                    <ion-input placeholder="PASSWORD" type="password" required></ion-input>
+                    <ion-icon name="eye-outline" slot="end"></ion-icon>
+                </ion-item>
+
+                <ion-item lines="none" style="padding-bottom: 2em">
+                    <ion-checkbox slot="start" checked></ion-checkbox>
+                    <ion-label>Remember me!</ion-label>
+                </ion-item>
+            </ion-list>
+
+            <ion-toolbar>
+                <ion-button expand="block" style="padding: 0 1em">
+                    Login
+                    <ion-icon slot="end" name="log-in"></ion-icon>
+                </ion-button>
+            </ion-toolbar>
+            <ion-toolbar class="ion-text-center">
+                <stencil-route-link url="/components/button">I don't have an account yet!</stencil-route-link>
+            </ion-toolbar>
+        </ion-footer>
+    </ion-app>
+</c-controller>

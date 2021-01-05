@@ -1,0 +1,11 @@
+body {
+    /* Ionic */
+    --ion-text-color: #212121;
+    --ion-background-color: #FAFAFA;
+
+    /* Cardinal */
+    --c-font-family: var(--ion-font-family);
+    --c-app-menu-color: #212121;
+    --c-app-menu-background: #EEEEEE;
+    --c-app-container-background: linear-gradient(160deg, #286ce3 0%, #6dc9f3 100%);
+}

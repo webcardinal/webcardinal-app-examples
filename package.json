@@ -1,22 +1,23 @@
 {
-  "name": "cardinal-app-starter",
+  "name": "webcardinal-app-examples",
   "version": "1.0.0",
-  "description": "Application template that combines multiple components of Cardinal.",
+  "description": "",
   "scripts": {
     "postinstall": "node ./node_modules/octopus/scripts/run && npm run build-cardinal",
-    "build-cardinal": "npm run build-cardinal-components && npm run build-cardinal-themes",
-    "build-cardinal-themes": "node ./node_modules/octopus/scripts/run build-cardinal-themes",
+    "build-cardinal": "npm run build-cardinal-components",
     "build-cardinal-components": "node ./node_modules/octopus/scripts/run build-cardinal-components",
-    "server": "ws --spa ./index.html"
+    "server": "ws",
+    "server-ionic": "ws --spa ./examples/ionic/index.html"
   },
   "dependencies": {},
   "devDependencies": {
+    "@stencil/router": "^1.0.1",
     "local-web-server": "^4.2.1",
     "octopus": "git+https://github.com/webcardinal/octopus"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/webcardinal/cardinal-app-starter.git"
+    "url": "git+https://github.com/webcardinal/webcardinal-app-examples.git"
   },
   "license": "MIT"
 }

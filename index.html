@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>CardinalJS Application</title>
+    <title>WebCardinal Examples</title>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
@@ -9,8 +9,14 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
 
     <script type="module" src="/cardinal/cardinal.js"></script>
+
+    <link rel="stylesheet" href="/assets/reset.css">
+    <script src="/assets/examples.js"></script>
 </head>
 <body>
-    <psk-app-root></psk-app-root>
+    <nav data-applications="/examples">
+        <stencil-route-link url="/">Examples</stencil-route-link>
+        <stencil-route-link url="/ionic">Ionic</stencil-route-link>
+    </nav>
 </body>
 </html>

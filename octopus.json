@@ -3,7 +3,7 @@
   "dependencies": [
     {
       "name": "components/core",
-      "src": "https://github.com/webcardinal/cardinal-core",
+      "src": "https://github.com/webcardinal/webcardinal-essentials",
       "actions": [
         {
           "type": "smartClone",
@@ -13,51 +13,6 @@
         {
           "type": "execute",
           "cmd": "cd ./dev/cardinal/components/core && npm install"
-        }
-      ]
-    },
-    {
-      "name": "components/forms",
-      "src": "https://github.com/webcardinal/cardinal-forms",
-      "actions": [
-        {
-          "type": "smartClone",
-          "target": "./dev/cardinal",
-          "collectLog": false
-        },
-        {
-          "type": "execute",
-          "cmd": "cd ./dev/cardinal/components/forms && npm install"
-        }
-      ]
-    },
-    {
-      "name": "components/barcode",
-      "src": "https://github.com/webcardinal/cardinal-barcode",
-      "actions": [
-        {
-          "type": "smartClone",
-          "target": "./dev/cardinal",
-          "collectLog": false
-        },
-        {
-          "type": "execute",
-          "cmd": "cd ./dev/cardinal/components/barcode && npm install"
-        }
-      ]
-    },
-    {
-      "name": "components/wiki",
-      "src": "https://github.com/webcardinal/cardinal-wiki",
-      "actions": [
-        {
-          "type": "smartClone",
-          "target": "./dev/cardinal",
-          "collectLog": false
-        },
-        {
-          "type": "execute",
-          "cmd": "cd ./dev/cardinal/components/wiki && npm install"
         }
       ]
     }
@@ -70,18 +25,6 @@
         {
           "type": "buildCardinalComponents",
           "target": "./cardinal/components"
-        }
-      ]
-    }
-  ],
-  "build-cardinal-themes": [
-    {
-      "name": "build-cardinal-themes",
-      "src": "./dev/cardinal/themes",
-      "actions": [
-        {
-          "type": "buildCardinalThemes",
-          "target": "./themes"
         }
       ]
     }

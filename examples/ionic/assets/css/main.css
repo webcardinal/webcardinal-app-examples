@@ -1,0 +1,25 @@
+@import "variables.css";
+
+ion-app {
+    background: var(--ion-background-color);
+}
+
+.demo-device {
+    display: flex;
+    width: 100%; height: 100%;
+    padding: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+.demo-device > figure {
+    width: 100%; height: 100%;
+    max-width: 345px; max-height: 705px;
+    min-height: 600px;
+    overflow: hidden;
+    position: relative;
+    border: 12px solid #212121;
+    border-radius: 54px;
+    box-shadow: rgba(2, 8, 20, 0.1) 0 2px 8px, rgba(2, 8, 20, 0.08) 0 8px 16px;
+    background: var(--ion-background-color);
+}
+

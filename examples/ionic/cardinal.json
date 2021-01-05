@@ -1,0 +1,22 @@
+{
+  "version": "1.0.0",
+  "pagesPathname": "pages",
+  "pages": [
+    {
+      "name": "Application",
+      "path": "./",
+      "src": "./application/login.html"
+    },
+    {
+      "name": "Components",
+      "children": [
+        {
+          "name": "button"
+        }
+      ]
+    },
+    {
+      "name": "404"
+    }
+  ]
+}
