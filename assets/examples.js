@@ -1,5 +1,24 @@
+function trimPath(path) {
+    if (path.endsWith('/')) {
+        path = path.slice(0, -1);
+    }
+    if (path.startsWith('/')) {
+        path = path.slice(1);
+    }
+    return path;
+}
+
+function getBaseHref() {
+    const baseElement = document.querySelector('base')
+    if (!baseElement) return '';
+    if (!baseElement.href) return '';
+    return '/' + trimPath(new URL(baseElement.href).pathname);
+}
+
 function generateRoutes(src, pages) {
     function generateHomepage() {
+        console.log(location)
+
         const routeElement = document.createElement('stencil-route');
         routeElement.exact = true;
         // routeElement.url = '/';
@@ -22,7 +41,7 @@ function generateRoutes(src, pages) {
             routeElement.setAttribute('data-url', routeElement.url);
             routeElement.component = 'c-app-loader';
             routeElement.componentProps = {
-                src: page !== '/' ? src + page + '/index.html' : '/index.html',
+                src: src + page + '/index.html',
                 type: 'object'
             }
             routeElement.setAttribute('data-src', routeElement.componentProps.src);
@@ -37,17 +56,16 @@ function generateRoutes(src, pages) {
     switchElement.appendChild(generateHomepage());
     switchElement.append(...generateExamples());
     routerElement.appendChild(switchElement);
-    return routerElement
+    return routerElement;
 }
 
 window.addEventListener('load', _ => {
     const navElement = document.querySelector('nav[data-applications]')
-    let src = navElement.getAttribute('data-applications') || "";
+    let examples = navElement.getAttribute('data-applications') || ''
+    let src = getBaseHref() + examples;
     let pages = Array.from(navElement.children).map(route => route.url);
     navElement.remove();
     document.body.appendChild(generateRoutes(src, pages));
-
-    console.log(location);
 });
 
 // <nav data-applications="/examples">

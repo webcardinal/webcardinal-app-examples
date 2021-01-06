@@ -6,7 +6,7 @@
     "postinstall": "node ./node_modules/octopus/scripts/run && npm run build-cardinal",
     "build-cardinal": "npm run build-cardinal-components",
     "build-cardinal-components": "node ./node_modules/octopus/scripts/run build-cardinal-components",
-    "server": "ws --spa ./index.html",
+    "server": "ws --spa ./index.html --rewrite \"/webcardinal-app-examples/(.*) -> /$1\"",
     "server-ionic": "ws --spa ./examples/ionic/index.html"
   },
   "dependencies": {},
