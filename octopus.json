@@ -24,7 +24,7 @@
       "actions": [
         {
           "type": "buildCardinalComponents",
-          "target": "./cardinal/components"
+          "target": "./examples/cardinal/components"
         }
       ]
     }

@@ -207,6 +207,12 @@ class ApplicationController {
       }
       return pages;
     };
+    const getPagesFallback = (baseURL = this.baseURL.href, rawPages = getRaw('pagesFallback')) => {
+      let fallback = getPages(baseURL, [rawPages])[0];
+      delete fallback.path;
+      delete fallback.indexed;
+      return fallback;
+    };
     const getPagesPathname = (rawPathname = getRaw('pagesPathname')) => '/' + this._trimPathname(rawPathname);
     const config = {
       identity: getIdentity(),
@@ -215,6 +221,7 @@ class ApplicationController {
       routing: {
         baseURL: getBaseURL(),
         pages: getPages(),
+        pagesFallback: getPagesFallback(),
         pagesPathname: getPagesPathname(),
       }
     };

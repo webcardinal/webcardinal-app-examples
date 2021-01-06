@@ -2,7 +2,7 @@ function generateRoutes(src, pages) {
     function generateHomepage() {
         const routeElement = document.createElement('stencil-route');
         routeElement.exact = true;
-        routeElement.url = '/';
+        // routeElement.url = '/';
         routeElement.component = 'c-app-loader';
         routeElement.componentProps = {
             src: '/index.html',
@@ -19,11 +19,13 @@ function generateRoutes(src, pages) {
 
             const routeElement = document.createElement('stencil-route');
             routeElement.url = page;
+            routeElement.setAttribute('data-url', routeElement.url);
             routeElement.component = 'c-app-loader';
             routeElement.componentProps = {
                 src: page !== '/' ? src + page + '/index.html' : '/index.html',
                 type: 'object'
             }
+            routeElement.setAttribute('data-src', routeElement.componentProps.src);
             examples.push(routeElement);
         }
         return examples;
@@ -42,9 +44,13 @@ window.addEventListener('load', _ => {
     const navElement = document.querySelector('nav[data-applications]')
     let src = navElement.getAttribute('data-applications') || "";
     let pages = Array.from(navElement.children).map(route => route.url);
-    console.log(pages);
     navElement.remove();
     document.body.appendChild(generateRoutes(src, pages));
 
     console.log(location);
 });
+
+// <nav data-applications="/examples">
+//     <stencil-route-link url="/">Examples</stencil-route-link>
+//     <stencil-route-link url="/ionic">Ionic</stencil-route-link>
+// </nav>

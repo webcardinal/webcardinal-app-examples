@@ -1,4 +1,4 @@
-import ContainerController from "/cardinal/base/controllers/ContainerController.js";
+import CardinalController from "/cardinal/base/controllers/ContainerController.js";
 
 class LoginPopover extends HTMLElement {
     constructor() {
@@ -9,7 +9,7 @@ class LoginPopover extends HTMLElement {
         this.innerHTML = `
           <ion-content>
             <ion-list>
-              <ion-list-header><ion-label>Settings</ion-label></ion-list-header>
+              <ion-list-header><ion-label>Information</ion-label></ion-list-header>
               <ion-item>About</ion-item>
               <ion-item button lines="none"><ion-label>Showcase mode</ion-label></ion-item>
             </ion-list>
@@ -18,7 +18,8 @@ class LoginPopover extends HTMLElement {
 
         const button = this.querySelector('ion-item[button]');
         button.addEventListener('click', () => {
-            document.body.removeAttribute('live-mode');
+            // document.body.removeAttribute('live-mode');
+            localStorage.removeItem('live-mode');
             window.handleRoot();
         });
     }
@@ -26,7 +27,7 @@ class LoginPopover extends HTMLElement {
 
 customElements.define('login-popover', LoginPopover);
 
-class LoginController extends ContainerController {
+class LoginController extends CardinalController {
     handleMenuClick(event) {
         const popover = Object.assign(document.createElement('ion-popover'), {
             component: 'login-popover',

@@ -1,11 +1,22 @@
 {
   "version": "1.0.0",
   "pagesPathname": "pages",
+  "pagesFallback": {
+      "name": "Application",
+      "src": "./application/login.html"
+  },
   "pages": [
     {
-      "name": "Application",
-      "path": "./",
-      "src": "./application/login.html"
+      "name": "Pages",
+      "src": "./application",
+      "children": [
+        {
+          "name": "Login"
+        },
+        {
+          "name": "Register"
+        }
+      ]
     },
     {
       "name": "Components",
@@ -14,9 +25,6 @@
           "name": "button"
         }
       ]
-    },
-    {
-      "name": "404"
     }
   ]
 }

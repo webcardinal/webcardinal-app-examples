@@ -44,6 +44,19 @@ const CAppRouter = class {
         }
       });
     };
+    this._renderFallback = (fallback) => {
+      if (!fallback) {
+        return null;
+      }
+      const base = this._trimmedPath(this.base) + '/~dev-fallback';
+      const props = {
+        component: 'c-app-loader',
+        componentProps: {
+          src: this._trimmedPath(new URL(fallback.src, new URL(base, window.location.origin)).href)
+        }
+      };
+      return h("stencil-route", Object.assign({}, props));
+    };
   }
   async componentWillLoad() {
     try {
@@ -51,13 +64,14 @@ const CAppRouter = class {
       this.routes = routing.pages;
       this.root = new URL(routing.baseURL).pathname;
       this.base = new URL(routing.baseURL + routing.pagesPathname).pathname;
+      this.fallback = routing.pagesFallback;
     }
     catch (error) {
       console.error(error);
     }
   }
   render() {
-    return (h("stencil-router", { "data-test-root": this.root + '/', root: this.root + '/' }, h("stencil-route-switch", { scrollTopOffset: 0 }, this._renderRoutes(this.routes))));
+    return (h("stencil-router", { "data-test-root": this.root + '/', root: this.root + '/' }, h("stencil-route-switch", { scrollTopOffset: 0 }, this._renderRoutes(this.routes), this._renderFallback(this.fallback))));
   }
   ;
 };
