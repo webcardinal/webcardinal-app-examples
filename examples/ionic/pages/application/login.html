@@ -12,7 +12,7 @@
     }
     .title {
         font-weight: bolder;
-        font-size: 170%;
+        font-size: 190%;
         margin-bottom: 1em;
     }
     ion-input {
@@ -25,7 +25,7 @@
         <ion-header class="ion-no-border">
             <ion-toolbar>
                 <ion-title class="intro">WELCOME TO</ion-title>
-                <ion-title class="title">Mobile Banking</ion-title>
+                <ion-title class="title">Mobile<br>Application</ion-title>
                 <ion-buttons slot="end">
                     <ion-button id="menu">
                         <ion-icon slot="icon-only" name="ellipsis-vertical"></ion-icon>
@@ -42,12 +42,16 @@
 
                 <ion-item>
                     <ion-icon name="person-circle" slot="start"></ion-icon>
-                    <ion-input placeholder="EMAIL" type="email" inputmode="email" required></ion-input>
+                    <ion-input value="john.doe@example.com"
+                               placeholder="EMAIL" type="email" inputmode="email"
+                               required></ion-input>
                 </ion-item>
 
                 <ion-item>
                     <ion-icon name="lock-closed" slot="start"></ion-icon>
-                    <ion-input placeholder="PASSWORD" type="password" required></ion-input>
+                    <ion-input value="test1234"
+                               placeholder="PASSWORD" type="password"
+                               required></ion-input>
                     <ion-icon name="eye-outline" slot="end"></ion-icon>
                 </ion-item>
 
@@ -58,14 +62,13 @@
             </ion-list>
 
             <ion-toolbar>
-                <ion-button expand="block" style="padding: 0 1em">
-                    Login
-                    <ion-icon slot="end" name="log-in"></ion-icon>
+                <ion-button expand="block" style="padding: 0 1em" id="login">
+                    Login <ion-icon slot="end" name="log-in"></ion-icon>
                 </ion-button>
             </ion-toolbar>
             <ion-toolbar class="ion-text-center">
-<!--                <ion-router-link href="/examples/ionic/pages/application/register">I don't have an account yet!</ion-router-link>-->
-                <stencil-route-link url="/pages/register">I don't have an account yet!</stencil-route-link>
+                 <ion-router-link href="/register">I don't have an account yet!</ion-router-link>
+<!--                <stencil-route-link url="/register">I don't have an account yet!</stencil-route-link>-->
             </ion-toolbar>
         </ion-footer>
     </ion-app>

@@ -5,7 +5,7 @@
     }
     .title {
         font-weight: bolder;
-        font-size: 170%;
+        font-size: 150%;
         margin-bottom: 1em;
     }
 </style>
@@ -18,10 +18,45 @@
                     <ion-back-button default-href></ion-back-button>
                     <ion-toolbar>
                         <ion-title class="intro">CREATE YOUR ACCOUNT</ion-title>
-                        <ion-title class="title">Mobile Banking</ion-title>
+                        <ion-title class="title">Mobile Application</ion-title>
                     </ion-toolbar>
                 </ion-buttons>
             </ion-toolbar>
         </ion-header>
+
+        <ion-content>
+            <ion-card>
+                <ion-card-header color="primary">
+                    <ion-subtitle>Complete the following information</ion-subtitle>
+                </ion-card-header>
+
+                <ion-list>
+                    <ion-item>
+                        <ion-label>Full name</ion-label>
+                        <ion-input type="text" required></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>Email</ion-label>
+                        <ion-input type="email" required></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>Password</ion-label>
+                        <ion-input type="password" required></ion-input>
+                    </ion-item>
+                    <ion-item lines="none">
+                        <ion-label>Birthday</ion-label>
+                        <ion-datetime display-timezone="utc" required></ion-datetime>
+                    </ion-item>
+                </ion-list>
+            </ion-card>
+
+            <ion-card>
+                <ion-item color="light">
+                    <ion-icon name="help-circle-outline" slot="start"></ion-icon>
+                    <ion-label size="small">Why do we need this information?</ion-label>
+                    <ion-button fill="outline" slot="end">View</ion-button>
+                </ion-item>
+            </ion-card>
+        </ion-content>
     </ion-app>
 </c-controller>

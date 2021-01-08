@@ -1,4 +1,4 @@
-import CardinalController from "/cardinal/base/controllers/ContainerController.js";
+import CardinalController from "/webcardinal/base/controllers/ContainerController.js";
 
 class RegisterController extends CardinalController {
     constructor(element, history) {

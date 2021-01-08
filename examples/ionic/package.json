@@ -1,0 +1,21 @@
+{
+  "name": "@webcardinal-app-examples/ionic",
+  "version": "1.0.0",
+  "description": "Ionic web components used inside WebCardinal.",
+  "scripts": {
+    "postinstall": "node ./node_modules/octopus/scripts/run && npm run build",
+    "build": "node ./node_modules/octopus/scripts/run build-webcardinal-components",
+    "start": "ws --spa ./index.html"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@stencil/router": "^1.0.1",
+    "local-web-server": "^4.2.1",
+    "octopus": "git+https://github.com/webcardinal/octopus"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webcardinal/webcardinal-app-examples.git"
+  },
+  "license": "MIT"
+}

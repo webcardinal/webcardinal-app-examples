@@ -1,5 +1,4 @@
 {
-  "version": "1.0.0",
   "pagesPathname": "pages",
   "pagesFallback": {
       "name": "Application",
@@ -8,6 +7,7 @@
   "pages": [
     {
       "name": "Pages",
+      "path": "./",
       "src": "./application",
       "children": [
         {
@@ -15,14 +15,11 @@
         },
         {
           "name": "Register"
-        }
-      ]
-    },
-    {
-      "name": "Components",
-      "children": [
+        },
         {
-          "name": "button"
+          "name": "Application",
+          "path": "./demo",
+          "src": "./home.html"
         }
       ]
     }

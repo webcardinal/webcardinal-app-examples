@@ -1,17 +1,14 @@
 function handleLiveMode() {
-    // document.body.setAttribute('live-mode', '');
     localStorage.setItem('live-mode', 'active');
     handleRoot();
 }
 
 function handleGoBack() {
-    // location.assign(location.origin);
     history.back();
 }
 
 function handleRoot() {
-    let root = document.querySelector('c-app-root') || document.createElement('c-app-root');
-    // const isLive = document.body.hasAttribute('live-mode');
+    const root = document.querySelector('c-app-root') || document.createElement('c-app-root');
     const isLive = localStorage.getItem('live-mode') === 'active';
 
     if (isLive) {
@@ -36,10 +33,9 @@ function handleRoot() {
 
     if (!root.isConnected) {
         document.body.appendChild(root);
-        // root.componentOnReady().then(() => document.querySelector('a.link-active').click());
     }
 }
 
 window.handleRoot = handleRoot;
 
-window.addEventListener('load', _ => handleRoot());
+window.addEventListener('load', handleRoot);
