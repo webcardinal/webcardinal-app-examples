@@ -22,7 +22,7 @@
     }
 </style>
 
-<c-controller name="LoginController">
+<wcc-bindable name="LoginController">
     <ion-app>
         <ion-header class="ion-no-border">
             <ion-toolbar>
@@ -34,40 +34,28 @@
 
         <ion-footer>
             <ion-list>
-                <ion-item-divider color="primary">
-                    <ion-label class="intro">Stay in touch with Us!</ion-label>
-                </ion-item-divider>
+                <ion-item-divider model="@content.intro"></ion-item-divider>
 
                 <ion-item>
-                    <ion-icon name="person-circle" slot="start"></ion-icon>
-                    <ion-input value="john.doe@example.com"
-                               placeholder="EMAIL" type="email" inputmode="email"
-                               required></ion-input>
+                    <ion-icon model="@content.email.icon"></ion-icon>
+                    <ion-input model="@content.email.input"></ion-input>
                 </ion-item>
 
                 <ion-item>
-                    <ion-icon name="lock-closed" slot="start"></ion-icon>
-                    <ion-input value="test1234"
-                               placeholder="PASSWORD" type="password"
-                               required></ion-input>
-                    <ion-icon name="eye-outline" slot="end"></ion-icon>
+                    <ion-icon model="@content.password.icon"></ion-icon>
+                    <ion-input model="@content.password.input"></ion-input>
+                    <ion-icon model="@content.password.show"></ion-icon>
                 </ion-item>
 
-                <ion-item lines="none" style="padding-bottom: 2em">
-                    <ion-checkbox slot="start" checked></ion-checkbox>
-                    <ion-label>Remember me!</ion-label>
-                </ion-item>
+                <ion-item model="@content.remember-me"></ion-item>
             </ion-list>
 
             <ion-toolbar>
-                <ion-button expand="block" style="padding: 0 1em" id="login">
-                    Login <ion-icon slot="end" name="log-in"></ion-icon>
-                </ion-button>
+                <ion-button model="@footer.login"></ion-button>
             </ion-toolbar>
             <ion-toolbar class="ion-text-center">
-                 <ion-router-link href="/register">I don't have an account yet!</ion-router-link>
-<!--                <stencil-route-link url="/register">I don't have an account yet!</stencil-route-link>-->
+                <ion-router-link model="@footer.register"></ion-router-link>
             </ion-toolbar>
         </ion-footer>
     </ion-app>
-</c-controller>
+</wcc-bindable>
