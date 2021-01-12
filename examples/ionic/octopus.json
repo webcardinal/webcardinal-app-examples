@@ -23,11 +23,8 @@
       "src": "./.dev/webcardinal/components",
       "actions": [
         {
-          "type": "buildCardinalComponents",
-          "target": "./webcardinal/components",
-          "options": {
-            "dev": true
-          }
+          "type": "buildWebCardinalComponents",
+          "target": "./webcardinal/components"
         }
       ]
     }
