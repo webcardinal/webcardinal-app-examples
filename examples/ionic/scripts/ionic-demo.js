@@ -8,26 +8,26 @@ function handleGoBack() {
 }
 
 function handleRoot() {
-    const root = document.querySelector('c-app-root') || document.createElement('c-app-root');
+    const root = document.querySelector('wcc-app-root') || document.createElement('wcc-app-root');
     const isLive = localStorage.getItem('live-mode') === 'active';
 
     if (isLive) {
-        root.innerHTML = `<c-app-container></c-app-container>`
+        root.innerHTML = `<wcc-app-container></wcc-app-container>`
     } else {
         root.innerHTML = `
-            <c-app-menu>
+            <wcc-app-menu>
                 <ion-button slot="before" expand="full" color="light" onclick="handleGoBack()">
                     <ion-icon name="arrow-back"></ion-icon> Go back
                 </ion-button>
                 <ion-button slot="after" expand="full" onclick="handleLiveMode()">Live mode</ion-button>
-            </c-app-menu>
-            <c-app-container>
+            </wcc-app-menu>
+            <wcc-app-container>
                 <div class="demo-device">
                     <figure>
-                        <c-app-router></c-app-router>
+                        <wcc-app-router></wcc-app-router>
                     </figure>
                 </div>
-            </c-app-container>
+            </wcc-app-container>
         `;
     }
 

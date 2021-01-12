@@ -4,8 +4,8 @@ body {
     --ion-background-color: #FAFAFA;
 
     /* Cardinal */
-    --c-font-family: var(--ion-font-family);
-    --c-app-menu-color: #212121;
-    --c-app-menu-background: #EEEEEE;
-    --c-app-container-background: linear-gradient(160deg, #286ce3 0%, #6dc9f3 100%);
+    --wcc-font-family: var(--ion-font-family);
+    --wcc-app-menu-color: #212121;
+    --wcc-app-menu-background: #EEEEEE;
+    --wcc-app-container-background: linear-gradient(160deg, #286ce3 0%, #6dc9f3 100%);
 }

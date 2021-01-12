@@ -38,8 +38,8 @@ class LoginController extends CardinalController {
                 class: 'title'
             },
             options: {
-                innerHTML:
-                    `<ion-button id="menu">
+                innerHTML: `
+                    <ion-button id="menu">
                         <ion-icon slot="icon-only" name="ellipsis-vertical"></ion-icon>
                     </ion-button>`,
                 slot: 'end'
@@ -85,8 +85,8 @@ class LoginController extends CardinalController {
                 }
             },
             'remember-me': {
-                innerHTML:
-                    `<ion-checkbox slot="start" checked></ion-checkbox>
+                innerHTML: `
+                    <ion-checkbox slot="start" checked></ion-checkbox>
                     <ion-label>Remember me!</ion-label>`,
                 lines: 'none',
                 style: 'padding-bottom: 2em'
@@ -135,17 +135,17 @@ class LoginController extends CardinalController {
     async showPassword(event) {
         event.stopImmediatePropagation();
         event.target.parentElement.children[1].type = 'text';
-        event.target.setAttribute('name', this.model.main.password.hide.name);
+        event.target.setAttribute('name', this.model.content.password.hide.name);
     }
 
     async hidePassword(event) {
         event.stopImmediatePropagation();
         event.target.parentElement.children[1].type = 'password';
-        event.target.setAttribute('name', this.model.main.password.show.name);
+        event.target.setAttribute('name', this.model.content.password.show.name);
     }
 
     async togglePassword(event) {
-        if (event.target.getAttribute('name') === this.model.main.password.hide.name) {
+        if (event.target.getAttribute('name') === this.model.content.password.hide.name) {
             await this.hidePassword(event);
         } else {
             await this.showPassword(event);
