@@ -32,6 +32,7 @@ function handleRoot() {
     }
 
     if (!root.isConnected) {
+        document.body.innerHTML = '';
         document.body.appendChild(root);
     }
 }
