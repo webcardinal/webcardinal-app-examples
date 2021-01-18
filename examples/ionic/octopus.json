@@ -1,18 +1,18 @@
 {
   "workDir": ".",
-  "dependencies": [
+  "clone-webcardinal-components": [
     {
-      "name": "components/core",
-      "src": "https://github.com/webcardinal/webcardinal-core",
+      "name": "clone-webcardinal-components",
       "actions": [
         {
-          "type": "smartClone",
-          "target": "./.dev/webcardinal",
-          "collectLog": false
-        },
-        {
-          "type": "execute",
-          "cmd": "cd ./.dev/webcardinal/components/core && npm install"
+          "type": "cloneWebCardinalComponents",
+          "target": "./.dev/webcardinal/components",
+          "components": [
+            {
+              "name": "webcardinal-core",
+              "src": "https://github.com/webcardinal/webcardinal-core"
+            }
+          ]
         }
       ]
     }

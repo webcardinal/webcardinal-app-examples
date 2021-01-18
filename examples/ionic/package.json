@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Ionic web components used inside WebCardinal.",
   "scripts": {
-    "postinstall": "node ./node_modules/octopus/scripts/run && npm run build",
+    "postinstall": "npm run clone && npm run build",
+    "clone": "node ./node_modules/octopus/scripts/run clone-webcardinal-components",
     "build": "node ./node_modules/octopus/scripts/run build-webcardinal-components",
     "start": "ws --spa ./index.html"
   },
