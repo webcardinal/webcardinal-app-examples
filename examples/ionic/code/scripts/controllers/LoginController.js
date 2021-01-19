@@ -1,4 +1,4 @@
-import CardinalController from "/webcardinal/base/controllers/ContainerController.js";
+const { Controller } = WebCardinal.controllers;
 
 class LoginPopover extends HTMLElement {
     constructor() {
@@ -26,8 +26,8 @@ class LoginPopover extends HTMLElement {
 
 customElements.define('login-popover', LoginPopover);
 
-class LoginController extends CardinalController {
-    getModel = () => ({
+class LoginController extends Controller {
+    getModel = _ => ({
         header: {
             intro: {
                 innerText: 'WELCOME TO',
@@ -152,7 +152,14 @@ class LoginController extends CardinalController {
         }
     }
 
-    async handleOnReady() {
+    constructor(element) {
+        super(element);
+        this.setModel(this.getModel());
+    }
+
+    async onReady() {
+        // this method is called when this.element is loaded
+
         const menuElement = this.element.querySelector('#menu');
         const loginButtonElement = this.element.querySelector('#login');
         const viewElement = this.element.querySelector('#view-password');
@@ -166,21 +173,6 @@ class LoginController extends CardinalController {
             viewElement.addEventListener('mousedown', this.showPassword.bind(this));
             viewElement.addEventListener('mouseup', this.hidePassword.bind(this));
         }
-
-        // TODO: two-way binding
-        // let value = 0;
-        // loginButtonElement.addEventListener('click', () => {
-        //     this.model.header.title = `${++value}`;
-        // })
-    }
-
-    constructor(element, history) {
-        super(element, history);
-
-        this.model = this.setModel(this.getModel());
-
-        // <wcc-bindable> loaded
-        element.componentOnReady().then(this.handleOnReady.bind(this));
     }
 }
 
