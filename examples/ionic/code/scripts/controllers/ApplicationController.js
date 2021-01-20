@@ -9,12 +9,14 @@ class ApplicationController extends Controller {
                     innerHTML: 'Add <ion-icon name="add-circle-outline" slot="start"></ion-icon>',
                     expand: 'block',
                     color: 'success',
+                    id: 'add-button'
                 },
                 remove: {
                     innerHTML: 'Remove <ion-icon name="remove-circle-outline" slot="end"></ion-icon>',
                     expand: 'block',
                     color: 'danger',
-                    disabled: true
+                    disabled: true,
+                    id: 'delete-button'
                 }
             }
         }
@@ -33,8 +35,8 @@ class ApplicationController extends Controller {
     }
 
     async onReady() {
-        const addScheduleButton = this.element.querySelector('[model="actions.schedule.add"]');
-        const removeScheduleButton = this.element.querySelector('[model="actions.schedule.remove"]');
+        const addScheduleButton = this.element.querySelector('#add-button');
+        const removeScheduleButton = this.element.querySelector('#delete-button');
 
         addScheduleButton.addEventListener('click', e => {
             e.preventDefault();
