@@ -7,7 +7,7 @@ body {
     --webc-font-family: var(--ion-font-family);
     --webc-app-menu-color: #212121;
     --webc-app-menu-vertical-background: #EEEEEE;
-    --webc-app-menu-vertical-border-color: #6DC9F3;
+    --webc-app-menu-vertical-border-color: rgba(0, 0, 0, 0.1);
     --webc-app-menu-disable-identity: true;
     --webc-app-container-background: linear-gradient(160deg, #286CE3 0%, #6DC9F3 100%);
 }

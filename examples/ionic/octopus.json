@@ -52,6 +52,15 @@
           "target": "./webcardinal"
         }
       ]
+    },
+    {
+      "name": "clear-bundle",
+      "actions": [
+        {
+          "type": "remove",
+          "target": "./.webcardinal"
+        }
+      ]
     }
   ],
   "build-webcardinal.dev": [

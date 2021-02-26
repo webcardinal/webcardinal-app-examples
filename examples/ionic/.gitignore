@@ -1,6 +1,9 @@
 .idea/
 .vscode/
-.dev/
+
 node_modules/
+
+.webcardinal/
+webcardinal/
 
 latest-change-set.txt
