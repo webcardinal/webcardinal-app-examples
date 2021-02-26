@@ -27,19 +27,19 @@ class LoginPopover extends HTMLElement {
 customElements.define('login-popover', LoginPopover);
 
 class LoginController extends Controller {
-    getModel = _ => ({
+    initializeModel = () => ({
         header: {
             intro: {
-                innerText: 'WELCOME TO',
+                text: 'WELCOME TO',
                 class: 'intro'
             },
             title: {
-                innerHTML: `Mobile<br>Application`,
+                html: `Mobile<br>Application`,
                 class: 'title'
             },
             options: {
-                innerHTML: `
-                    <ion-button id="menu">
+                html: `
+                    <ion-button data-tag="menu">
                         <ion-icon slot="icon-only" name="ellipsis-vertical"></ion-icon>
                     </ion-button>`,
                 slot: 'end'
@@ -47,7 +47,7 @@ class LoginController extends Controller {
         },
         content: {
             intro: {
-                innerHTML: `<ion-label class="intro">Stay in touch with Us!</ion-label>`,
+                html: `<ion-label class="intro">Stay in touch with Us!</ion-label>`,
                 color: 'primary'
             },
             email: {
@@ -85,7 +85,7 @@ class LoginController extends Controller {
                 }
             },
             'remember-me': {
-                innerHTML: `
+                html: `
                     <ion-checkbox slot="start" checked></ion-checkbox>
                     <ion-label>Remember me!</ion-label>`,
                 lines: 'none',
@@ -96,18 +96,18 @@ class LoginController extends Controller {
             login: {
                 expand: 'block',
                 style: 'padding: 0 1em',
-                id: 'login',
-                innerHTML: 'Login <ion-icon slot="end" name="log-in"></ion-icon>'
+                _saveElement: true,
+                html: 'Login <ion-icon slot="end" name="log-in"></ion-icon>'
             },
             register: {
-                innerText: `I don't have an account yet!`,
+                text: `I don't have an account yet!`,
                 href: '/register'
             }
         }
     })
 
-    async handleMenuClick(event) {
-        const popover = Object.assign(document.createElement('ion-popover'), {
+    async handleMenuClick(model, target, event) {
+        const popover = this.createElement('ion-popover', {
             component: 'login-popover',
             event,
             translucent: true
@@ -152,28 +152,36 @@ class LoginController extends Controller {
         }
     }
 
-    constructor(element) {
-        super(element);
-        this.setModel(this.getModel());
+    constructor(element, history) {
+        super(element, history);
+
+        this.setModel(this.initializeModel());
+
+        // One simple way for targeting events using data-tag mechanism
+        this.onTagClick('menu', this.handleMenuClick.bind(this));
+
+        // For a more complex example take a look at "async onReady" function
     }
 
     async onReady() {
-        // this method is called when this.element is loaded
+        // this method is called when this.element is mounted correctly (hydrated)
 
-        const menuElement = this.element.querySelector('#menu');
-        const loginButtonElement = this.element.querySelector('#login');
-        const viewElement = this.element.querySelector('#view-password');
-
-        menuElement.addEventListener('click', this.handleMenuClick.bind(this));
+        // If you need to have access to DOM Element you can use { _saveElement: true } as a prop in model
+        const loginButtonElement = this.model.footer.login.getElement();
         loginButtonElement.addEventListener('click', this.handleLoginClick.bind(this));
 
+        // You can use also native methods, like querySelector
+        const viewElement = this.element.querySelector('#view-password');
         if ('ontouchstart' in window || navigator.msMaxTouchPoints > 0) {
-            viewElement.addEventListener('touchstart', this.togglePassword.bind(this))
+            viewElement.addEventListener('touchstart', this.togglePassword.bind(this));
+            // this.onTagEvent('touchstart', ...)
         } else {
             viewElement.addEventListener('mousedown', this.showPassword.bind(this));
             viewElement.addEventListener('mouseup', this.hidePassword.bind(this));
+            // this.onTagEvent('mousedown', ...)
+            // this.onTagEvent('mouseup', ...)
         }
     }
 }
 
-export default LoginController; // used by <wcc-bindable>
+export default LoginController;

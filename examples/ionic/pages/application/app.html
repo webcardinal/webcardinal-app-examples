@@ -4,7 +4,7 @@
     }
 </style>
 
-<wcc-bindable controller="ApplicationController">
+<webc-page controller="ApplicationController">
     <ion-app>
         <ion-menu side="start" content-id="main-content">
             <ion-header>
@@ -54,37 +54,19 @@
 
             <ion-content>
                 <ion-tab tab="tab-home">
-                    <ion-item lines="none">
-                        <ion-label>Home</ion-label>
-                    </ion-item>
+                    <webc-template template-name="tab-home"></webc-template>
                 </ion-tab>
 
                 <ion-tab tab="tab-schedule">
-                    <ion-item lines="none">
-                        <ion-label>Schedule</ion-label>
-                    </ion-item>
-                    <ion-grid style="width: 100%">
-                        <ion-row>
-                            <ion-col>
-                                <ion-button model="@actions.schedule.add"></ion-button>
-                            </ion-col>
-                            <ion-col>
-                                <ion-button model="@actions.schedule.remove"></ion-button>
-                            </ion-col>
-                        </ion-row>
-                    </ion-grid>
+                    <webc-template template-name="tab-schedule" data-model="@"></webc-template>
                 </ion-tab>
 
                 <ion-tab tab="tab-map">
-                    <ion-item lines="none">
-                        <ion-label>Map</ion-label>
-                    </ion-item>
+                    <webc-template template-name="tab-map"></webc-template>
                 </ion-tab>
 
                 <ion-tab tab="tab-about" component="page-about">
-                    <ion-item lines="none">
-                        <ion-label>About</ion-label>
-                    </ion-item>
+                    <webc-template template-name="tab-about"></webc-template>
                 </ion-tab>
             </ion-content>
 
@@ -97,7 +79,7 @@
                 <ion-tab-button tab="tab-schedule">
                     <ion-icon name="calendar"></ion-icon>
                     <ion-label>Schedule</ion-label>
-                    <ion-badge model="@scheduleCounter"></ion-badge>
+                    <ion-badge data-model="@scheduleCounter"></ion-badge>
                 </ion-tab-button>
 
                 <ion-tab-button tab="tab-map">
@@ -112,4 +94,4 @@
             </ion-tab-bar>
         </ion-tabs>
     </ion-app>
-</wcc-bindable>
+</webc-page>

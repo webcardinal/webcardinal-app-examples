@@ -19,7 +19,7 @@
         {
           "name": "Application",
           "path": "./demo",
-          "src": "./home.html"
+          "src": "./app.html"
         }
       ]
     }

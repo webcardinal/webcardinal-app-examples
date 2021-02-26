@@ -3,14 +3,13 @@
   "version": "1.0.0",
   "description": "Ionic web components used inside WebCardinal.",
   "scripts": {
-    "postinstall": "npm run clone && npm run build",
-    "clone": "node ./node_modules/octopus/scripts/run clone-webcardinal-components",
-    "build": "node ./node_modules/octopus/scripts/run build-webcardinal-components",
+    "postinstall": "npm run bundle-webcardinal",
+    "bundle-webcardinal": "node node_modules/octopus/scripts/run bundle-webcardinal devmode",
+    "dev": "node node_modules/octopus/scripts/run build-webcardinal.dev devmode",
     "start": "ws --spa ./index.html"
   },
   "dependencies": {},
   "devDependencies": {
-    "@stencil/router": "^1.0.1",
     "local-web-server": "^4.2.1",
     "octopus": "git+https://github.com/webcardinal/octopus"
   },

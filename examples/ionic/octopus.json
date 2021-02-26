@@ -1,30 +1,73 @@
 {
   "workDir": ".",
-  "clone-webcardinal-components": [
+  "bundle-webcardinal": [
+    {
+      "name": "clone-webcardinal-dependencies",
+      "actions": [
+        {
+          "name": "webcardinal-internals",
+          "type": "smartClone",
+          "src": "https://github.com/webcardinal/webcardinal-internals",
+          "target": "./.webcardinal/dependencies",
+          "collectLog": false
+        }
+      ]
+    },
     {
       "name": "clone-webcardinal-components",
       "actions": [
         {
-          "type": "cloneWebCardinalComponents",
-          "target": "./.dev/webcardinal/components",
-          "components": [
-            {
-              "name": "webcardinal-core",
-              "src": "https://github.com/webcardinal/webcardinal-core"
-            }
-          ]
+          "name": "webcardinal-core",
+          "type": "smartClone",
+          "src": "https://github.com/webcardinal/webcardinal-core",
+          "target": "./.webcardinal/components",
+          "collectLog": false
+        }
+      ]
+    },
+    {
+      "name": "install-webcardinal-dependencies",
+      "actions": [
+        {
+          "type": "execute",
+          "cmd": "cd ./.webcardinal/dependencies/webcardinal-internals && npm install"
+        }
+      ]
+    },
+    {
+      "name": "install-webcardinal-components",
+      "actions": [
+        {
+          "type": "execute",
+          "cmd": "cd ./.webcardinal/components/webcardinal-core && npm install --save-dev ../../dependencies/webcardinal-internals && npm install"
+        }
+      ]
+    },
+    {
+      "name": "build-webcardinal-components",
+      "actions": [
+        {
+          "type": "buildWebCardinalComponents",
+          "src": "./.webcardinal",
+          "target": "./webcardinal"
         }
       ]
     }
   ],
-  "build-webcardinal-components": [
+  "build-webcardinal.dev": [
     {
       "name": "build-webcardinal-components",
-      "src": "./.dev/webcardinal/components",
       "actions": [
         {
           "type": "buildWebCardinalComponents",
-          "target": "./webcardinal/components"
+          "src": "./.webcardinal",
+          "target": "./webcardinal",
+          "options": {
+            "DEV": true,
+            "devComponents": [
+              "webcardinal-core"
+            ]
+          }
         }
       ]
     }
