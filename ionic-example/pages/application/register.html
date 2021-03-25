@@ -5,12 +5,12 @@
     }
     .title {
         font-weight: bolder;
-        font-size: 150%;
+        font-size: 105%;
         margin-bottom: 1em;
     }
 </style>
 
-<webc-page controller="RegisterController">
+<webc-container controller="RegisterController">
     <ion-app>
         <ion-header>
             <ion-toolbar>
@@ -27,7 +27,7 @@
         <ion-content>
             <ion-card>
                 <ion-card-header color="primary">
-                    <ion-subtitle>Complete the following information</ion-subtitle>
+                    <ion-title class="ion-padding">Complete the following information</ion-title>
                 </ion-card-header>
 
                 <ion-list>
@@ -59,4 +59,4 @@
             </ion-card>
         </ion-content>
     </ion-app>
-</webc-page>
+</webc-container>

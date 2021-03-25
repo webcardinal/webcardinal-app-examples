@@ -1,0 +1,79 @@
+{
+  "workDir": ".",
+  "dependencies": [
+    {
+      "name": "webcardinal",
+      "actions": [
+        {
+          "type": "smartClone",
+          "src": "https://github.com/webcardinal/webcardinal-bundler",
+          "target": "./.dev",
+          "collectLog": false
+        },
+        {
+          "type": "execute",
+          "cmd": "cd ./.dev/webcardinal && npm install && npm run bundle-minimal"
+        }
+      ]
+    },
+    {
+      "name": "ionic",
+      "actions": [
+        {
+          "type": "execute",
+          "cmd": "npm install --save-dev @ionic/core",
+          "target": "./.dev",
+          "collectLog": false
+        },
+        {
+          "type": "copy",
+          "src": "./node_modules/@ionic/core/dist/ionic",
+          "target": "./ionic/dist"
+        },
+        {
+          "type": "copy",
+          "src": "./node_modules/@ionic/core/css",
+          "target": "./ionic/css"
+        },
+        {
+          "type": "execute",
+          "cmd": "npm install --save-dev ionicons",
+          "target": "./.dev",
+          "collectLog": false
+        },
+        {
+          "type": "copy",
+          "src": "./node_modules/ionicons/dist/ionicons",
+          "target": "./ionicons/dist"
+        }
+      ]
+    }
+  ],
+  "build": [
+    {
+      "name": "build-webcardinal",
+      "actions": [
+        {
+          "type": "buildWebCardinalComponents",
+          "src": "./.dev/webcardinal/.webcardinal",
+          "target": "./webcardinal"
+        }
+      ]
+    }
+  ],
+  "dev": [
+    {
+      "name": "build-webcardinal-components",
+      "actions": [
+        {
+          "type": "buildWebCardinalComponents",
+          "src": "./.dev/webcardinal/.webcardinal",
+          "target": "./webcardinal",
+          "options": {
+            "DEV": true
+          }
+        }
+      ]
+    }
+  ]
+}

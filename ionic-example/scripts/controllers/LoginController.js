@@ -1,22 +1,22 @@
 const { Controller } = WebCardinal.controllers;
 
 class LoginPopover extends HTMLElement {
-    constructor() {
-        super();
-    }
-
     connectedCallback() {
         this.innerHTML = `
+          <style>ion-label { padding-left: 1rem }</style>
           <ion-content>
+            <ion-list-header lines="full">
+               <ion-label>👋</ion-label>
+               <ion-button button>Showcase mode</ion-button>
+            </ion-list-header>
             <ion-list>
-              <ion-list-header><ion-label>Information</ion-label></ion-list-header>
-              <ion-item>About</ion-item>
-              <ion-item button lines="none"><ion-label>Showcase mode</ion-label></ion-item>
+              <ion-item button>About</ion-item>
+              <ion-item button lines="none">Development<ion-label></ion-label></ion-item>
             </ion-list>
           </ion-content>
         `;
 
-        const button = this.querySelector('ion-item[button]');
+        const button = this.querySelector('ion-button');
         button.addEventListener('click', () => {
             localStorage.removeItem('live-mode');
             window.handleRoot();
@@ -34,7 +34,7 @@ class LoginController extends Controller {
                 class: 'intro'
             },
             title: {
-                html: `Mobile<br>Application`,
+                html: `Mobile Application`,
                 class: 'title'
             },
             options: {
@@ -47,7 +47,7 @@ class LoginController extends Controller {
         },
         content: {
             intro: {
-                html: `<ion-label class="intro">Stay in touch with Us!</ion-label>`,
+                html: `<ion-label class="intro ion-padding">Stay in touch with Us!</ion-label>`,
                 color: 'primary'
             },
             email: {
@@ -119,10 +119,10 @@ class LoginController extends Controller {
     async handleLoginClick(event) {
         event.stopImmediatePropagation();
 
-        const loading = document.createElement('ion-loading');
-
-        loading.message = 'Please wait...';
-        loading.duration = 1500;
+        const loading = this.createElement('ion-loading', {
+            message: 'Please wait...',
+            duration: 1500
+        });
 
         document.body.appendChild(loading);
 

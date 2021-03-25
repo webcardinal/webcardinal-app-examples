@@ -5,7 +5,7 @@
     }
     ion-header .title {
         font-weight: bolder;
-        font-size: 190%;
+        font-size: 140%;
         margin-bottom: 1em;
     }
 
@@ -17,12 +17,19 @@
         font-style: italic;
     }
 
+    ion-header ion-toolbar {
+        --padding-start: 1rem;
+    }
     ion-input {
         --placeholder-font-weight: lighter;
     }
+    ion-item {
+        --inner-padding-start: 0.45rem;
+        --padding-end: 1rem;
+    }
 </style>
 
-<webc-page controller="LoginController">
+<webc-container controller="LoginController">
     <ion-app>
         <ion-header class="ion-no-border">
             <ion-toolbar>
@@ -58,4 +65,4 @@
             </ion-toolbar>
         </ion-footer>
     </ion-app>
-</webc-page>
+</webc-container>

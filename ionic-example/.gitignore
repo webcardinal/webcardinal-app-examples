@@ -1,9 +1,10 @@
 .idea/
 .vscode/
+.dev/
 
 node_modules/
-
-.webcardinal/
+ionic/
+ionicons/
 webcardinal/
 
 latest-change-set.txt
