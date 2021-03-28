@@ -1,9 +1,5 @@
 @import "variables.css";
 
-ion-app {
-    background: var(--ion-background-color);
-}
-
 ion-app a {
     text-decoration: none;
 }

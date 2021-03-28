@@ -20,12 +20,6 @@
       "name": "ionic",
       "actions": [
         {
-          "type": "execute",
-          "cmd": "npm install --save-dev @ionic/core",
-          "target": "./.dev",
-          "collectLog": false
-        },
-        {
           "type": "copy",
           "src": "./node_modules/@ionic/core/dist/ionic",
           "target": "./ionic/dist"
@@ -34,12 +28,6 @@
           "type": "copy",
           "src": "./node_modules/@ionic/core/css",
           "target": "./ionic/css"
-        },
-        {
-          "type": "execute",
-          "cmd": "npm install --save-dev ionicons",
-          "target": "./.dev",
-          "collectLog": false
         },
         {
           "type": "copy",

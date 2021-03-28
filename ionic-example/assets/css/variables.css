@@ -11,3 +11,7 @@ body {
     --webc-app-menu-disable-identity: true;
     --webc-app-container-background: linear-gradient(160deg, #286CE3 0%, #6DC9F3 100%);
 }
+
+ion-app {
+    background: var(--ion-background-color);
+}
