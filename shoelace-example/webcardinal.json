@@ -1,0 +1,19 @@
+{
+  "identity": {
+    "name": "WebCardinal with Shoelace",
+    "email": "contact@example.com"
+  },
+  "pagesFallback": {
+    "name": "404",
+    "src": "404.html"
+  },
+  "pages": [
+    {
+      "name": "Home",
+      "path": "/"
+    },
+    {
+      "name": "Contact"
+    }
+  ]
+}

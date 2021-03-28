@@ -1,0 +1,8 @@
+body {
+    font-family: var(--sl-font-sans);
+    --webc-font-family: var(--sl-font-sans);
+}
+
+section.page {
+    padding: var(--sl-spacing-medium) var(--sl-spacing-x-large);
+}

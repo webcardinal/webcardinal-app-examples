@@ -1,0 +1,21 @@
+<style>
+    :root {
+        --webc-app-menu-disable-identity: true;
+        --webc-font-family: var(--sl-font-sans);
+    }
+    webc-app-identity {
+        --webc-app-identity-color: var(--sl-color-primary-500);
+    }
+    webc-app-menu {
+        --webc-app-menu-color: var(--sl-color-primary-500);
+        --webc-app-menu-vertical-border-color: var(--sl-color-gray-200);
+        --webc-app-menu-vertical-background: tranparent;
+        --webc-app-menu-vertical-padding: 0 1rem 0 0;
+        --webc-app-menu-vertical-items-padding: 0.75rem 0.5rem;
+    }
+</style>
+<sl-drawer id="app-menu" placement="left">
+    <webc-app-identity slot="label"></webc-app-identity>
+    <webc-app-menu></webc-app-menu>
+    <div slot="footer">Footer</div>
+</sl-drawer>

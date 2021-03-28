@@ -1,0 +1,16 @@
+<style>
+    .app-menu-toggle {
+        --margin: 1rem;
+        position: fixed;
+        top: var(--margin); right: var(--margin);
+        font-size: 1.7rem;
+        border-radius: 1px;
+        overflow: hidden;
+    }
+    .app-menu-toggle sl-icon-button::part(base) {
+        padding: 0.5rem;
+    }
+</style>
+<div class="app-menu-toggle">
+    <sl-icon-button id="app-menu-toggle" name="list" label="Settings"></sl-icon-button>
+</div>

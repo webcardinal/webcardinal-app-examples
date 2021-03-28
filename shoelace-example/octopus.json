@@ -1,0 +1,57 @@
+{
+  "workDir": ".",
+  "dependencies": [
+    {
+      "name": "webcardinal",
+      "actions": [
+        {
+          "type": "smartClone",
+          "src": "https://github.com/webcardinal/webcardinal-bundler",
+          "target": "./.dev",
+          "collectLog": false
+        },
+        {
+          "type": "execute",
+          "cmd": "cd ./.dev/webcardinal && npm install && npm run bundle-minimal"
+        }
+      ]
+    },
+    {
+      "name": "shoelace",
+      "actions": [
+        {
+          "type": "copy",
+          "src": "./node_modules/@shoelace-style/shoelace/dist",
+          "target": "./shoelace/dist"
+        }
+      ]
+    }
+  ],
+  "build": [
+    {
+      "name": "build-webcardinal",
+      "actions": [
+        {
+          "type": "buildWebCardinalComponents",
+          "src": "./.dev/webcardinal/.webcardinal",
+          "target": "./webcardinal"
+        }
+      ]
+    }
+  ],
+  "dev": [
+    {
+      "name": "build-webcardinal-components",
+      "actions": [
+        {
+          "type": "buildWebCardinalComponents",
+          "src": "./.dev/webcardinal/.webcardinal",
+          "target": "./webcardinal",
+          "options": {
+            "DEV": true
+          }
+        }
+      ]
+    }
+  ]
+}

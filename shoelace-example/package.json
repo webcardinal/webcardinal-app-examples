@@ -1,0 +1,23 @@
+{
+  "name": "@webcardinal-app-examples/shoelace",
+  "version": "1.0.0",
+  "description": "Shoelace web components used inside WebCardinal.",
+  "scripts": {
+    "postinstall": "node node_modules/octopus/scripts/run dependencies devmode && npm run build",
+    "build": "node node_modules/octopus/scripts/run build devmode",
+    "dev": "node node_modules/octopus/scripts/run dev devmode",
+    "abc": "node node_modules/octopus/scripts/run abc devmode",
+    "server": "ws --spa ./index.html"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@shoelace-style/shoelace": "^2.0.0-beta.35",
+    "local-web-server": "^4.2.1",
+    "octopus": "git+https://github.com/webcardinal/octopus"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webcardinal/webcardinal-app-examples.git"
+  },
+  "license": "MIT"
+}
