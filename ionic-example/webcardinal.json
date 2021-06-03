@@ -20,6 +20,9 @@
           "name": "Application",
           "path": "./demo",
           "src": "./app.html"
+        },
+        {
+          "name": "Test"
         }
       ]
     }
