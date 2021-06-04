@@ -21,7 +21,20 @@ let model = {
                 type: 'text',
             }]
 
-    }],
+    },
+        {
+            continentName: "Asia", countries: [
+                {
+                    value: "China",
+                    placeholder: 'Country',
+                    type: 'text',
+                }, {
+                    value: "Indonesia",
+                    placeholder: 'Country',
+                    type: 'text',
+                }]
+
+        }],
     pets:{
        value:["cat","dog"],
        options:[ {
@@ -33,21 +46,65 @@ let model = {
             name:"Cat"
         }]
     },
+
+    artists:[{
+            value: "picasso",
+            name: "Pablo Picasso",
+            checked: true,
+        },
+        {
+            value: "gogh",
+            name: "Van Gogh",
+            checked: false,
+        }],
     date:{
-        displayFormat:"DD/MM/YYYY",
+        "display-format":"DD/MM/YYYY",
         value:new Date(1628735304708).toISOString(),
         placeholder: "Select date"
     },
     time:{
-        displayFormat: "h:mm A",
-        minuteValues:"0,15,30,45",
-        value:new Date(1628735304708).toISOString(),
+        "display-format": "h:mm A",
+        "minute-values":"0,15,30,45",
+        value:new Date(1628734000000).toISOString(),
         placeholder: "Select time"
+    },
+    daysOfTheWeek:{
+        value:"tuesday",
+        options: [{
+            optionName: "Monday",
+            value: "monday",
+        },
+            {
+                optionName: "Tuesday",
+                value: "tuesday",
+            },
+            {
+                optionName: "Saturday",
+                value: "saturday",
+            }
+        ]
+    },
+    pepperoni:{
+        checked:true,
+        value:"pepperoni",
+        name:"Pepperoni"
+    },
+    brightness:{
+        min:10,
+        value:50,
+        max:90,
+    },
+    range: {
+        min:10,
+        max:90,
+        value: {
+            lower: 10,
+            upper: 75
+        }
     }
 }
 
 export default class TestController extends IonicController {
-
 
     constructor(...props) {
         super(...props);
@@ -67,7 +124,14 @@ export default class TestController extends IonicController {
         this.model.onChange("time",()=>{
             console.log("Time", this.model.time.value)
         })
-    }
 
+        this.model.onChange("artists",()=>{
+            console.log("Artists:",this.model.artists.filter(artist=>artist.checked));
+        });
+
+        this.model.onChange("daysOfTheWeek",()=>{
+            console.log(this.model.daysOfTheWeek);
+        })
+    }
 
 }

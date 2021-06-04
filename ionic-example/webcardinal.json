@@ -22,7 +22,9 @@
           "src": "./app.html"
         },
         {
-          "name": "Test"
+          "name": "Ionic binding",
+          "path": "ionic-binding",
+          "src": "./ion-2-way-binding.html"
         }
       ]
     }

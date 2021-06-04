@@ -1,12 +1,18 @@
-
 const { Controller } = WebCardinal.controllers;
 
-
-//bindingElements
+//by default ionic components keep their model on value property
+//sometimes it is possible that you need some other information. E.g on ion-checkbox you want to see if the model is checked
 
  const ionEventsChainMappings = [{
     eventName: "ionChange",
-    chainTriggered: "value"
+    components:{
+      "ion-checkbox":{
+          chainTriggered:"checked"
+      },
+        "ion-toggle":{
+          chainTriggered:"checked"
+        }
+    },
 }]
 
 export default class IonicController extends Controller {
@@ -15,39 +21,37 @@ export default class IonicController extends Controller {
         super(...props);
         let constructorElement = props[0];
 
-
         ionEventsChainMappings.forEach((ionEventChainMapping)=>{
            let eventName = ionEventChainMapping.eventName;
-           let chainTriggered = ionEventChainMapping.chainTriggered;
 
            constructorElement.addEventListener(eventName,(event)=>{
                 let eventSource = event.target;
                 let eventValue = event.target.value;
+                let componentName = eventSource.tagName.toLowerCase();
+                let chainTriggered = ionEventChainMapping.components[componentName];
+
+                if(typeof chainTriggered === "undefined"){
+                    chainTriggered = "value";
+                }else{
+                    chainTriggered = ionEventChainMapping.components[componentName].chainTriggered;
+                    if(typeof event.target[chainTriggered]!=="undefined"){
+                        eventValue = event.target[chainTriggered]
+                    }
+                }
 
                 let attributeValue;
-                switch (true){
-                    case eventSource.hasAttribute("data-view-model") :
-                        attributeValue= eventSource.getAttribute("data-view-model");
-                        break;
-                    case eventSource.hasAttribute("ion-binding") :
-                        attributeValue= eventSource.getAttribute("ion-binding");
-                        break;
-                    default:
-                        return;
+                if(eventSource.hasAttribute("data-view-model")){
+                    attributeValue= eventSource.getAttribute("data-view-model");
+                    let modelChain = attributeValue.split("@").join("");
+
+                    //console.log(chainTriggered)
+                    if(chainTriggered!=="@"){
+                        modelChain = `${modelChain}.${chainTriggered}`;
+                    }
+                    //console.log(modelChain,eventValue);
+                    this.model.setChainValue(modelChain, eventValue);
                 }
-
-               let modelChain = attributeValue.split("@").join("");
-
-                console.log(chainTriggered)
-                if(chainTriggered!=="@"){
-                    modelChain = `${modelChain}.${chainTriggered}`;
-                }
-                console.log(modelChain);
-                this.model.setChainValue(modelChain, eventValue)
-
             });
         });
-
     }
-
 }

@@ -1,0 +1,232 @@
+<webc-container controller="TestController">
+
+    <ion-app >
+        <ion-header>
+            <ion-toolbar>
+                <ion-buttons>
+                    <ion-back-button default-href data-tag="back"></ion-back-button>
+                    <ion-toolbar>
+                        <ion-title class="title">2-way binding ionic components</ion-title>
+                    </ion-toolbar>
+                </ion-buttons>
+            </ion-toolbar>
+        </ion-header>
+
+        <ion-content>
+
+            <ion-card>
+                <ion-card-header>
+                    <ion-card-title>ion-input</ion-card-title>
+                </ion-card-header>
+
+                <ion-card-content>
+                    <ion-list>
+                        <ion-item>
+                            <ion-label>Email:</ion-label>
+                            <ion-input data-view-model="@input"></ion-input>
+                        </ion-item>
+                        <p>current model value: {{@input.value}}</p>
+                    </ion-list>
+                </ion-card-content>
+            </ion-card>
+
+
+            <ion-card>
+                <ion-card-header>
+                    <ion-card-title>ion-input-arrays</ion-card-title>
+                </ion-card-header>
+
+                <ion-card-content>
+                    <ion-list data-for="@array">
+                        <div style="box-shadow: 2px 2px 2px #58585855; background: #cee7f3">
+                        <ion-label>Continent:{{@continentName}}</ion-label>
+
+                        <ion-list data-for="@countries">
+                            <ion-label><b>Country Name</b></ion-label>
+                            <ion-input data-view-model="@"></ion-input>
+                        </ion-list>
+                        </div>
+                    </ion-list>
+
+
+                    <ion-label>List of Countries:</ion-label>
+                    <ion-list data-for="@array">
+                        <ion-list data-for="@countries">
+                            <p>{{@value}}</p>
+                        </ion-list>
+                    </ion-list>
+
+                </ion-card-content>
+            </ion-card>
+
+
+            <ion-card>
+                <ion-card-header>
+                    <ion-card-title>ion-textarea-arrays</ion-card-title>
+                </ion-card-header>
+
+                <ion-card-content>
+                    <ion-list data-for="@array">
+                        <ion-label>All Countries:</ion-label>
+                        <ion-list data-for="@countries">
+                            <ion-textarea data-view-model="@"></ion-textarea>
+                        </ion-list>
+                    </ion-list>
+
+                </ion-card-content>
+            </ion-card>
+
+            <ion-card>
+                <ion-card-header>
+                    <ion-card-title>ion-select</ion-card-title>
+                </ion-card-header>
+
+                <ion-card-content>
+                    <ion-item>
+                        <ion-label>Pets</ion-label>
+                        <ion-select id="multiple" multiple data-view-model="@pets" value="@pets.value" data-for="@pets.options">
+                            <ion-select-option value="@value">{{@name}}</ion-select-option>
+                        </ion-select>
+                    </ion-item>
+
+                    <b>Selected pets:</b>
+                    <span data-for="@pets.value">
+                        {{@}}
+                    </span>
+                </ion-card-content>
+            </ion-card>
+
+
+            <ion-card>
+                <ion-card-header>
+                    <ion-card-title>ion-checkbox</ion-card-title>
+                </ion-card-header>
+
+                <ion-card-content>
+                    <ion-item>
+                        <ion-label>Artists</ion-label>
+                        <ion-item data-for="@artists">
+                            <ion-label>{{@name}}</ion-label>
+                            <ion-checkbox data-view-model="@" ></ion-checkbox>
+                        </ion-item>
+                    </ion-item>
+
+                    <b>Selected artists:</b>
+                    <span data-for="@artists">
+                        <span data-if="@checked">
+                            {{@name}}
+                        </span>
+                    </span>
+
+                </ion-card-content>
+            </ion-card>
+
+
+            <ion-card>
+                <ion-card-header>
+                    <ion-card-title>ion-radio-group</ion-card-title>
+                </ion-card-header>
+
+                <ion-card-content>
+                    <ion-item>
+                        <ion-label>Suitable day</ion-label>
+                        <ion-radio-group data-view-model="@daysOfTheWeek" value="@daysOfTheWeek.value" data-for="@daysOfTheWeek.options">
+                            <ion-item>
+                                <ion-label>{{@optionName}}</ion-label>
+                                <ion-radio data-view-model="@"></ion-radio>
+                            </ion-item>
+                        </ion-radio-group>
+
+                    </ion-item>
+
+                    <b>Selected day: {{@daysOfTheWeek.value}}</b>
+
+                </ion-card-content>
+            </ion-card>
+
+
+            <ion-card>
+                <ion-card-header>
+                    <ion-card-title>ion-datetime:date example</ion-card-title>
+                </ion-card-header>
+
+                <ion-card-content>
+                    <ion-item>
+                        <ion-label>Date</ion-label>
+                        <ion-datetime  data-view-model="@date"></ion-datetime>
+                    </ion-item>
+                    <b>Selected date: {{@date.value}}</b>
+                </ion-card-content>
+            </ion-card>
+
+            <ion-card>
+                <ion-card-header>
+                    <ion-card-title>ion-datetime:time example</ion-card-title>
+                </ion-card-header>
+
+                <ion-card-content>
+                    <ion-item>
+                        <ion-label>Time</ion-label>
+                        <ion-datetime data-view-model="@time"></ion-datetime>
+                    </ion-item>
+                    <b>Selected time: {{@time.value}}</b>
+                </ion-card-content>
+            </ion-card>
+
+            <ion-card>
+                <ion-card-header>
+                    <ion-card-title>ion-toggle</ion-card-title>
+                </ion-card-header>
+
+                <ion-card-content>
+                    <ion-item>
+                        <ion-label>Pepperoni</ion-label>
+                        <ion-toggle slot="end" data-view-model="@pepperoni"></ion-toggle>
+                    </ion-item>
+                    <b>Pepperoni: {{@pepperoni.checked}}</b>
+                </ion-card-content>
+            </ion-card>
+
+
+            <ion-card>
+                <ion-card-header>
+                    <ion-card-title>ion-range:simple</ion-card-title>
+                </ion-card-header>
+
+                <ion-card-content>
+                    <ion-item>
+                        <ion-range min="-200" max="200" pin color="secondary" data-view-model="@brightness">
+                            <ion-icon slot="start" size="small" name="contrast"></ion-icon>
+                            <ion-icon slot="end" name="contrast"></ion-icon>
+                        </ion-range>
+                    </ion-item>
+                    <ion-item>
+                        <b>Brightness: {{@brightness.value}}</b>
+                    </ion-item>
+
+                </ion-card-content>
+            </ion-card>
+
+            <ion-card>
+                <ion-card-header>
+                    <ion-card-title>ion-range:double</ion-card-title>
+                </ion-card-header>
+
+                <ion-card-content>
+                    <ion-item>
+                        <ion-range id="dual-range" dual-knobs pin color="dark" data-view-model="@range" step="5">
+                            <ion-icon slot="start" size="small" name="brush"></ion-icon>
+                            <ion-icon slot="end" name="brush"></ion-icon>
+                        </ion-range>
+                        </ion-item>
+                        <ion-item>
+                        <b>Selected range: {{@range.value.lower}}-{{@range.value.upper}}</b>
+                    </ion-item>
+
+                </ion-card-content>
+            </ion-card>
+
+        </ion-content>
+    </ion-app>
+
+</webc-container>
