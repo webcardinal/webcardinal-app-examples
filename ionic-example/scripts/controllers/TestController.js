@@ -1,4 +1,4 @@
-import IonicController from "./IonicController.js";
+const { WebcIonicController } = WebCardinal.controllers;
 
 let model = {
     input: {
@@ -104,7 +104,7 @@ let model = {
     }
 }
 
-export default class TestController extends IonicController {
+export default class TestController extends WebcIonicController {
 
     constructor(...props) {
         super(...props);
