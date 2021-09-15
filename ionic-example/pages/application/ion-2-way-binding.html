@@ -12,6 +12,38 @@
             </ion-toolbar>
         </ion-header>
 
+        <ion-card>
+            <ion-card-header>
+                <ion-card-title>ion-input: value-binding</ion-card-title>
+            </ion-card-header>
+
+            <ion-card-content>
+                <ion-list>
+                    <ion-item>
+                        <ion-label>Email:</ion-label>
+                        <ion-input value="@input.value"></ion-input>
+                    </ion-item>
+                    <p>current model value: {{@input.value}}</p>
+                </ion-list>
+            </ion-card-content>
+        </ion-card>
+
+        <ion-card>
+            <ion-card-header>
+                <ion-card-title>ion-input: value-binding</ion-card-title>
+            </ion-card-header>
+
+        <ion-item>
+            <ion-label>Artists</ion-label>
+            <ion-item data-for="@artists">
+                <ion-label>{{@name}}</ion-label>
+                <ion-checkbox checked="@checked" ></ion-checkbox>
+            </ion-item>
+        </ion-item>
+        </ion-card>
+        _________________________________________________________________________
+
+
         <ion-content>
 
             <ion-card>
